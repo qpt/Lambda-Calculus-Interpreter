@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\terms">
+      <UniqueIdentifier>{e3c76748-d61b-49e5-a5dd-147899059993}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\terms">
+      <UniqueIdentifier>{0dfc5945-f879-4cae-bd37-92d7febe50c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\atoms">
+      <UniqueIdentifier>{f8c3816e-8db6-4f54-b232-1376d2b0cc9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\atoms">
+      <UniqueIdentifier>{9e7e4b37-a9b5-40c6-b0c2-1166653138f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\core">
+      <UniqueIdentifier>{59e243f1-982f-4c36-b645-a2d068c7c42c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core">
+      <UniqueIdentifier>{85713c87-091a-4a02-ad25-bceda57e20b2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="abstraction_term.cpp">
+      <Filter>Source Files\terms</Filter>
+    </ClCompile>
+    <ClCompile Include="application_term.cpp">
+      <Filter>Source Files\terms</Filter>
+    </ClCompile>
+    <ClCompile Include="variable_term.cpp">
+      <Filter>Source Files\terms</Filter>
+    </ClCompile>
+    <ClCompile Include="term.cpp">
+      <Filter>Source Files\terms</Filter>
+    </ClCompile>
+    <ClCompile Include="variable.cpp">
+      <Filter>Source Files\atoms</Filter>
+    </ClCompile>
+    <ClCompile Include="core.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="interpreter.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="lexer.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="parser.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="term.h">
+      <Filter>Header Files\terms</Filter>
+    </ClInclude>
+    <ClInclude Include="abstraction_term.h">
+      <Filter>Header Files\terms</Filter>
+    </ClInclude>
+    <ClInclude Include="application_term.h">
+      <Filter>Header Files\terms</Filter>
+    </ClInclude>
+    <ClInclude Include="variable_term.h">
+      <Filter>Header Files\terms</Filter>
+    </ClInclude>
+    <ClInclude Include="variable.h">
+      <Filter>Header Files\atoms</Filter>
+    </ClInclude>
+    <ClInclude Include="interpreter.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="lexer.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="parser.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
