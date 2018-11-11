@@ -8,7 +8,7 @@ private:
 
 public:
 	variable(const std::string& _name);
-	~variable();
+	//~variable();
 	bool operator<(const variable& rhs) const;
 
 	std::string getName() const;

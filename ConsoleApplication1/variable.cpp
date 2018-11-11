@@ -6,10 +6,10 @@ variable::variable(const std::string& _name)
 {
 }
 
-variable::~variable()
-{
-	//std::cout << "Destroy variable: " << m_name << std::endl;
-}
+//variable::~variable()
+//{
+//	std::cout << "Destroy variable: " << m_name << std::endl;
+//}
 
 bool variable::operator<(const variable& rhs) const
 {
