@@ -146,25 +146,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="abstraction_term.cpp" />
-    <ClCompile Include="application_term.cpp" />
+    <ClCompile Include="abstractionTerm.cpp" />
+    <ClCompile Include="applicationTerm.cpp" />
     <ClCompile Include="interpreter.cpp" />
     <ClCompile Include="lexer.cpp" />
     <ClCompile Include="core.cpp" />
     <ClCompile Include="parser.cpp" />
     <ClCompile Include="term.cpp" />
     <ClCompile Include="variable.cpp" />
-    <ClCompile Include="variable_term.cpp" />
+    <ClCompile Include="variableTerm.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="abstraction_term.h" />
-    <ClInclude Include="application_term.h" />
+    <ClInclude Include="abstractionTerm.h" />
+    <ClInclude Include="applicationTerm.h" />
     <ClInclude Include="interpreter.h" />
     <ClInclude Include="lexer.h" />
     <ClInclude Include="parser.h" />
     <ClInclude Include="term.h" />
     <ClInclude Include="variable.h" />
-    <ClInclude Include="variable_term.h" />
+    <ClInclude Include="variableTerm.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

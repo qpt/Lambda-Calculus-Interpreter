@@ -37,20 +37,24 @@ void interpreter::interpretInput(const std::string& inputStr)
 
 	parser p(l.getTokens());
 	p.print();
-
-	std::cout << "Starting beta-Reduction" << std::endl;
 	std::shared_ptr<term>& ast = p.getAST();
 
-	int i = 0;
-	while (ast->hasBetaRedex() && ast != nullptr)
+	if (ast != nullptr)
 	{
-		std::cout << std::endl << ++i << ": ";
-		ast = eval(ast);
+		std::cout << "Starting beta-Reduction" << std::endl;
+
+		int i = 0;
+		while (ast != nullptr && ast->hasBetaRedex())
+		{
+			std::cout << std::endl << ++i << ": ";
+			ast = eval(ast);
+		}
+
+		std::cout << std::endl << "Normal Form found: ";
+		ast->print();
+		std::cout << std::endl;
 	}
 
-	std::cout << std::endl << "Normal Form found: ";
-	ast->print();
-	std::cout << std::endl;
 	std::cout << std::endl << ">>> ";
 }
 

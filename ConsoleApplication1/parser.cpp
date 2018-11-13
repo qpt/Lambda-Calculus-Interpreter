@@ -1,34 +1,37 @@
 #include <iostream>
 #include "parser.h"
-#include "variable_term.h"
-#include "application_term.h"
-#include "abstraction_term.h"
+#include "variableTerm.h"
+#include "applicationTerm.h"
+#include "abstractionTerm.h"
 
 parser::parser(const std::vector<token_pair>& _tokens)
 	: m_tokens(_tokens)
 {
-	m_ast = build_ast();
+	m_ast = buildAST();
 }
 
 void parser::print()
 {
 	std::cout << std::endl << "Your input is parsed as:" << std::endl;
-	m_ast->print();
+	if (m_ast != nullptr)
+	{
+		m_ast->print();
+	}
 	std::cout << std::endl << std::endl;
 }
 
-std::shared_ptr<term> parser::build_ast()
+std::shared_ptr<term> parser::buildAST()
 {
-	return parse_application_term(m_tokens.begin());
+	return parseApplicationTerm(m_tokens.begin());
 }
 
-std::shared_ptr<term> parser::parse_application_term(std::vector<token_pair>::iterator& it)
+std::shared_ptr<term> parser::parseApplicationTerm(std::vector<token_pair>::iterator& it)
 {
 	std::shared_ptr<term> lhs = nullptr;
 
 	while (it != m_tokens.end() && it->first != ")")
 	{
-		std::shared_ptr<term>& newAst = parse_term(it);
+		std::shared_ptr<term>& newAst = parseTerm(it);
 
 		if (lhs == nullptr)
 		{
@@ -36,25 +39,25 @@ std::shared_ptr<term> parser::parse_application_term(std::vector<token_pair>::it
 		}
 		else
 		{
-			lhs = std::make_shared<application_term>(application_term(lhs, newAst));
+			lhs = std::make_shared<applicationTerm>(applicationTerm(lhs, newAst));
 		}
 	}
 
 	return lhs;
 }
 
-std::shared_ptr<term> parser::parse_term(std::vector<token_pair>::iterator& it)
+std::shared_ptr<term> parser::parseTerm(std::vector<token_pair>::iterator& it)
 {
 	if (it->first == "var") // variable
 	{
-		return parse_variable_term(it);
+		return parseVariableTerm(it);
 	}
 	else if (it->first == "(") // nested term in
 	{
 		++it;
 		endOfTermCheck(it, "nested term");
 
-		std::shared_ptr<term>& nestedTerm = parse_application_term(it);
+		std::shared_ptr<term>& nestedTerm = parseApplicationTerm(it);
 		endOfTermCheck(it, "nested term");
 
 		if (it->first != ")") // nested term out
@@ -68,7 +71,7 @@ std::shared_ptr<term> parser::parse_term(std::vector<token_pair>::iterator& it)
 	}
 	else if (it->first == "L") // abstraction
 	{
-		return parse_abstraction_term(it);
+		return parseAbstractionTerm(it);
 	}
 	else
 	{
@@ -77,11 +80,11 @@ std::shared_ptr<term> parser::parse_term(std::vector<token_pair>::iterator& it)
 	}
 }
 
-std::shared_ptr<term> parser::parse_abstraction_term(std::vector<token_pair>::iterator& it)
+std::shared_ptr<term> parser::parseAbstractionTerm(std::vector<token_pair>::iterator& it)
 {
 	++it;
 	endOfTermCheck(it, "abstraction term");
-	variable captured = parse_variable(it);
+	variable captured = parseVariable(it);
 	
 	if (it == m_tokens.end() || it->first != ".")
 	{
@@ -91,20 +94,20 @@ std::shared_ptr<term> parser::parse_abstraction_term(std::vector<token_pair>::it
 
 	++it;
 	endOfTermCheck(it, "abstraction term");
-	std::shared_ptr<term> body = parse_application_term(it);
+	std::shared_ptr<term> body = parseApplicationTerm(it);
 
-	abstraction_term newAbstractionTerm = abstraction_term(captured, body);
+	abstractionTerm newAbstractionTerm = abstractionTerm(captured, body);
 
-	return std::make_shared<abstraction_term>(newAbstractionTerm);
+	return std::make_shared<abstractionTerm>(newAbstractionTerm);
 }
 
-std::shared_ptr<term> parser::parse_variable_term(std::vector<token_pair>::iterator& it)
+std::shared_ptr<term> parser::parseVariableTerm(std::vector<token_pair>::iterator& it)
 {
-	variable newVariable = parse_variable(it);
-	return std::make_shared<variable_term>(variable_term(newVariable));
+	variable newVariable = parseVariable(it);
+	return std::make_shared<variableTerm>(variableTerm(newVariable));
 }
 
-variable parser::parse_variable(std::vector<token_pair>::iterator& it)
+variable parser::parseVariable(std::vector<token_pair>::iterator& it)
 {
 	if (it->first != "var")
 	{

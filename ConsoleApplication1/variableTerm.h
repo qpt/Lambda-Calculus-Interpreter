@@ -3,13 +3,13 @@
 #include "term.h"
 #include "variable.h"
 
-class variable_term : public term
+class variableTerm : public term
 {
 private:
 	variable m_variable;
 
 public:
-	variable_term(const variable _variable, const termType type = termType::Variable);
+	variableTerm(const variable _variable, const termType type = termType::Variable);
 	//virtual ~variable_term();
 
 	virtual std::shared_ptr<term> copy() override final;

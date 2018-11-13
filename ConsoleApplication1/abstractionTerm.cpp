@@ -1,7 +1,7 @@
 #include <iostream>
-#include "abstraction_term.h"
+#include "abstractionTerm.h"
 
-abstraction_term::abstraction_term(const variable _capture, const std::shared_ptr<term>& _body,
+abstractionTerm::abstractionTerm(const variable _capture, const std::shared_ptr<term>& _body,
 	const termType type)
 	: term(type), m_capture(_capture), m_body(_body)
 {
@@ -14,35 +14,35 @@ abstraction_term::abstraction_term(const variable _capture, const std::shared_pt
 //	std::cout << std::endl;
 //}
 
-std::shared_ptr<term> abstraction_term::copy()
+std::shared_ptr<term> abstractionTerm::copy()
 {
 	std::shared_ptr<term>& newBody = m_body->copy();
-	return std::make_shared<abstraction_term>(abstraction_term(m_capture, newBody));
+	return std::make_shared<abstractionTerm>(abstractionTerm(m_capture, newBody));
 }
 
-void abstraction_term::print() const
+void abstractionTerm::print() const
 {
 	std::cout << "(L" << m_capture.getName() << ".";
 	m_body->print();
 	std::cout << ")";
 }
 
-std::shared_ptr<term> abstraction_term::eval()
+std::shared_ptr<term> abstractionTerm::eval()
 {
 	return m_body->eval();
 }
 
-bool abstraction_term::isBetaRedex() const
+bool abstractionTerm::isBetaRedex() const
 {
 	return false;
 }
 
-bool abstraction_term::hasBetaRedex() const
+bool abstractionTerm::hasBetaRedex() const
 {
 	return m_body->hasBetaRedex();
 }
 
-std::set<variable> abstraction_term::getFreeVariables() const
+std::set<variable> abstractionTerm::getFreeVariables() const
 {
 	// FV([x].t) = FV(t) \ {x}
 	auto varSet = m_body->getFreeVariables();
@@ -51,7 +51,7 @@ std::set<variable> abstraction_term::getFreeVariables() const
 	return varSet;
 }
 
-void abstraction_term::alphaRenameBy(const variable varToRename, const variable newVar)
+void abstractionTerm::alphaRenameBy(const variable varToRename, const variable newVar)
 {
 	// A([x].t){y:=z} = { [z].t{y:=z}    if y == x
 	//                    [x].t{y:=z}    else
@@ -66,7 +66,7 @@ void abstraction_term::alphaRenameBy(const variable varToRename, const variable 
 	}
 }
 
-void abstraction_term::naiveRenameBy(const variable varToRename, const variable newVar)
+void abstractionTerm::naiveRenameBy(const variable varToRename, const variable newVar)
 {
 	if (m_capture.getName() == varToRename.getName())
 	{
@@ -80,18 +80,18 @@ void abstraction_term::naiveRenameBy(const variable varToRename, const variable 
 	}
 }
 
-std::shared_ptr<term> abstraction_term::betaReduce(const variable varToReplace, const std::shared_ptr<term>& subTree)
+std::shared_ptr<term> abstractionTerm::betaReduce(const variable varToReplace, const std::shared_ptr<term>& subTree)
 {
 	auto& newBodyTerm = m_body->betaReduce(varToReplace, subTree);
-	return std::make_shared<abstraction_term>(abstraction_term(m_capture, newBodyTerm/*->copy()*/));
+	return std::make_shared<abstractionTerm>(abstractionTerm(m_capture, newBodyTerm/*->copy()*/));
 }
 
-variable abstraction_term::getCapturedVariable() const
+variable abstractionTerm::getCapturedVariable() const
 {
 	return m_capture;
 }
 
-std::shared_ptr<term> abstraction_term::getBodyTerm() const
+std::shared_ptr<term> abstractionTerm::getBodyTerm() const
 {
 	return m_body;
 }

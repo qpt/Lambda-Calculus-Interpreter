@@ -29,15 +29,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="abstraction_term.cpp">
-      <Filter>Source Files\terms</Filter>
-    </ClCompile>
-    <ClCompile Include="application_term.cpp">
-      <Filter>Source Files\terms</Filter>
-    </ClCompile>
-    <ClCompile Include="variable_term.cpp">
-      <Filter>Source Files\terms</Filter>
-    </ClCompile>
     <ClCompile Include="term.cpp">
       <Filter>Source Files\terms</Filter>
     </ClCompile>
@@ -56,18 +47,18 @@
     <ClCompile Include="parser.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
+    <ClCompile Include="applicationTerm.cpp">
+      <Filter>Source Files\terms</Filter>
+    </ClCompile>
+    <ClCompile Include="abstractionTerm.cpp">
+      <Filter>Source Files\terms</Filter>
+    </ClCompile>
+    <ClCompile Include="variableTerm.cpp">
+      <Filter>Source Files\terms</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="term.h">
-      <Filter>Header Files\terms</Filter>
-    </ClInclude>
-    <ClInclude Include="abstraction_term.h">
-      <Filter>Header Files\terms</Filter>
-    </ClInclude>
-    <ClInclude Include="application_term.h">
-      <Filter>Header Files\terms</Filter>
-    </ClInclude>
-    <ClInclude Include="variable_term.h">
       <Filter>Header Files\terms</Filter>
     </ClInclude>
     <ClInclude Include="variable.h">
@@ -81,6 +72,15 @@
     </ClInclude>
     <ClInclude Include="parser.h">
       <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="applicationTerm.h">
+      <Filter>Header Files\terms</Filter>
+    </ClInclude>
+    <ClInclude Include="abstractionTerm.h">
+      <Filter>Header Files\terms</Filter>
+    </ClInclude>
+    <ClInclude Include="variableTerm.h">
+      <Filter>Header Files\terms</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,14 +2,14 @@
 #include "term.h"
 #include <memory>
 
-class abstraction_term : public term
+class abstractionTerm : public term
 {
 private:
 	variable m_capture;
 	std::shared_ptr<term> m_body;
 
 public:
-	abstraction_term(const variable _capture, const std::shared_ptr<term>& _body, 
+	abstractionTerm(const variable _capture, const std::shared_ptr<term>& _body, 
 		const termType type = termType::Abstraction);
 	//virtual ~abstraction_term();
 

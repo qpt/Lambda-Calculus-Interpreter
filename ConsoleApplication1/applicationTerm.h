@@ -3,13 +3,13 @@
 #include "term.h"
 #include "variable.h"
 
-class application_term : public term
+class applicationTerm : public term
 {
 	std::shared_ptr<term> m_lhs;
 	std::shared_ptr<term> m_rhs;
 
 public:
-	application_term(const std::shared_ptr<term>& _lhs, const std::shared_ptr<term>& _rhs,
+	applicationTerm(const std::shared_ptr<term>& _lhs, const std::shared_ptr<term>& _rhs,
 		const termType type = termType::Application);
 	//virtual ~application_term();
 

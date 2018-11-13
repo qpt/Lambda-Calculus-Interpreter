@@ -17,12 +17,12 @@ public:
 	std::shared_ptr<term> getAST();
 
 private:
-	std::shared_ptr<term> build_ast();
-	std::shared_ptr<term> parse_application_term(std::vector<token_pair>::iterator& it);
-	std::shared_ptr<term> parse_term(std::vector<token_pair>::iterator& it);
-	std::shared_ptr<term> parse_abstraction_term(std::vector<token_pair>::iterator& it);
-	std::shared_ptr<term> parse_variable_term(std::vector<token_pair>::iterator& it);
-	variable parse_variable(std::vector<token_pair>::iterator& it);
+	std::shared_ptr<term> buildAST();
+	std::shared_ptr<term> parseApplicationTerm(std::vector<token_pair>::iterator& it);
+	std::shared_ptr<term> parseTerm(std::vector<token_pair>::iterator& it);
+	std::shared_ptr<term> parseAbstractionTerm(std::vector<token_pair>::iterator& it);
+	std::shared_ptr<term> parseVariableTerm(std::vector<token_pair>::iterator& it);
+	variable parseVariable(std::vector<token_pair>::iterator& it);
 
 	void endOfTermCheck(std::vector<token_pair>::iterator& it, const std::string& termType);
 	int getCharIndex(const std::vector<token_pair>::iterator& it) const;
