@@ -87,7 +87,7 @@ False = (Lx.((((x (Lx.(Ly.(Lz.   0'   ))))      T     )             1'         )
 False = (Lx.((((x (Lx.(Ly.(Lz. (Lx.x) )))) (Lx.(Ly.x))) (Lx.x(Lx.(Ly.y))(Lx.x))) (Lx.(Ly.y))))
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-atom : M ->
+https://latex.codecogs.com/gif.latex?atom&space;:&space;M&space;\rightarrow&space;M
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Atom  = (Lx.                                                If                                                             (                                     Null                            x)              1'         (                              False                                                    (x       T     )))
 Atom  = (Lx. (Lx.(Ly.(Lz.(((((Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x)))) x) (Lx.(Ly.x))) y) z)))) ((Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x)))) x) (Lx.x(Lx.(Ly.y))(Lx.x)) ((Lx.((((x (Lx.(Ly.(Lz. (Lx.x) )))) (Lx.(Ly.x))) (Lx.x(Lx.(Ly.y))(Lx.x))) (Lx.(Ly.y)))) (x (Lx.(Ly.x)) )))
