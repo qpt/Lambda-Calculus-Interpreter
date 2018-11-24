@@ -102,8 +102,8 @@ void applicationTerm::naiveRenameBy(const variable varToRename, const variable n
 std::shared_ptr<term> applicationTerm::betaReduce(const variable varToReplace, const std::shared_ptr<term>& subTree,
 	const bool isReduct)
 {
-	auto& newLhs = m_lhs->betaReduce(varToReplace, subTree, false);
-	auto& newRhs = m_rhs->betaReduce(varToReplace, subTree, false);
+	auto& newLhs = m_lhs->betaReduce(varToReplace, subTree, isReduct);
+	auto& newRhs = m_rhs->betaReduce(varToReplace, subTree, isReduct);
 
 	return std::make_shared<applicationTerm>(applicationTerm(newLhs, newRhs));
 }
