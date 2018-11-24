@@ -81,7 +81,7 @@ If = (Lx.(Ly.(Lz.((((                              Null                         
 If = (Lx.(Ly.(Lz.(((((Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x)))) x) (Lx.(Ly.x))) y) z))))
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-false : M -> M (always returns 0' if halts)
+false : M -> M (always returns `0'` if halts)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 False = (Lx.((((x (Lx.(Ly.(Lz.   0'   ))))      T     )             1'         )       F    ))
 False = (Lx.((((x (Lx.(Ly.(Lz. (Lx.x) )))) (Lx.(Ly.x))) (Lx.x(Lx.(Ly.y))(Lx.x))) (Lx.(Ly.y))))
