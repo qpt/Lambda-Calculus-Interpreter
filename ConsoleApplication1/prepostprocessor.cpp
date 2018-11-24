@@ -2,36 +2,36 @@
 
 prepostprocessor::prepostprocessor()
 {
-	auto& consPair1 = std::make_pair("Cons", Cons);
-	m_lispToLambda.push_back(consPair1);
-	auto& cdrPair1 = std::make_pair("Cdr", Cdr);
-	m_lispToLambda.push_back(cdrPair1);
-	auto& carPair1 = std::make_pair("Car", Car);
-	m_lispToLambda.push_back(carPair1);
-	auto& orPair1 = std::make_pair("Or", Or);
-	m_lispToLambda.push_back(orPair1);
-	auto& andPair1 = std::make_pair("And", And);
-	m_lispToLambda.push_back(andPair1);
-	auto& atomPair1 = std::make_pair("Atom", Atom);
-	m_lispToLambda.push_back(atomPair1);
-	auto& falsePair1 = std::make_pair("False", False);
-	m_lispToLambda.push_back(falsePair1);
-	auto& ifPair1 = std::make_pair("If", If);
-	m_lispToLambda.push_back(ifPair1);
-	auto& nullPair1 = std::make_pair("Null", Null);
-	m_lispToLambda.push_back(nullPair1);
-	auto& trPair1 = std::make_pair("1\'", Tr);
-	m_lispToLambda.push_back(trPair1);
-	auto& nilPair1 = std::make_pair("0\'", Nil);
-	m_lispToLambda.push_back(nilPair1);
-	auto& fPair1 = std::make_pair("F", F);
-	m_lispToLambda.push_back(fPair1);
-	auto& tPair1 = std::make_pair("T", T);
-	m_lispToLambda.push_back(tPair1);
-	auto& yCombPair1 = std::make_pair("Y", yComb);
-	m_lispToLambda.push_back(yCombPair1);
-	auto& loopPair1 = std::make_pair("Omega", loop);
-	m_lispToLambda.push_back(loopPair1);
+	auto& consPair = std::make_pair("Cons", Cons);
+	m_lispToLambda.push_back(consPair);
+	auto& cdrPair = std::make_pair("Cdr", Cdr);
+	m_lispToLambda.push_back(cdrPair);
+	auto& carPair = std::make_pair("Car", Car);
+	m_lispToLambda.push_back(carPair);
+	auto& orPair = std::make_pair("Or", Or);
+	m_lispToLambda.push_back(orPair);
+	auto& andPair = std::make_pair("And", And);
+	m_lispToLambda.push_back(andPair);
+	auto& atomPair = std::make_pair("Atom", Atom);
+	m_lispToLambda.push_back(atomPair);
+	auto& falsePair = std::make_pair("False", False);
+	m_lispToLambda.push_back(falsePair);
+	auto& ifPair = std::make_pair("If", If);
+	m_lispToLambda.push_back(ifPair);
+	auto& nullPair = std::make_pair("Null", Null);
+	m_lispToLambda.push_back(nullPair);
+	auto& trPair = std::make_pair("1\'", Tr);
+	m_lispToLambda.push_back(trPair);
+	auto& nilPair = std::make_pair("0\'", Nil);
+	m_lispToLambda.push_back(nilPair);
+	auto& fPair = std::make_pair("F", F);
+	m_lispToLambda.push_back(fPair);
+	auto& tPair = std::make_pair("T", T);
+	m_lispToLambda.push_back(tPair);
+	auto& yCombPair = std::make_pair("Y", yComb);
+	m_lispToLambda.push_back(yCombPair);
+	auto& loopPair = std::make_pair("Omega", loop);
+	m_lispToLambda.push_back(loopPair);
 }
 
 void prepostprocessor::preprocess(std::string& inputStr)
