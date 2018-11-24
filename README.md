@@ -60,3 +60,9 @@ null
 Null = (Lx.(x (Lx.(Ly.(Lz.z)))      T        0'              1'          ))
 Null = (Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x))))
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+if
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If = (Lx.(Ly.(Lz.(                             Null                                    x      T      y z))))
+If = (Lx.(Ly.(Lz.((Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x)))) x (Lx.(Ly.x)) y z))))
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
