@@ -14,7 +14,7 @@ abstractionTerm::abstractionTerm(const variable _capture, const std::shared_ptr<
 //	std::cout << std::endl;
 //}
 
-std::shared_ptr<term> abstractionTerm::copy()
+std::shared_ptr<term> abstractionTerm::copy() const
 {
 	std::shared_ptr<term>& newBody = m_body->copy();
 	return std::make_shared<abstractionTerm>(abstractionTerm(m_capture, newBody));

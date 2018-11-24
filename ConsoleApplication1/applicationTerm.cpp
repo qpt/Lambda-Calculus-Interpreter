@@ -16,7 +16,7 @@ applicationTerm::applicationTerm(const std::shared_ptr<term>& _lhs, const std::s
 //	std::cout << std::endl;
 //}
 
-std::shared_ptr<term> applicationTerm::copy()
+std::shared_ptr<term> applicationTerm::copy() const
 {
 	std::shared_ptr<term>& newLhs = m_lhs->copy();
 	std::shared_ptr<term>& newRhs = m_rhs->copy();

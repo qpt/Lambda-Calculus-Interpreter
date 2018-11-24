@@ -13,7 +13,7 @@ variableTerm::variableTerm(const variable _variable, const termType type)
 //	std::cout << std::endl;
 //}
 
-std::shared_ptr<term> variableTerm::copy()
+std::shared_ptr<term> variableTerm::copy() const
 {
 	return std::make_shared<variableTerm>(variableTerm(m_variable));
 }

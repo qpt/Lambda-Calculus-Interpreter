@@ -15,7 +15,7 @@ public:
 		const termType type = termType::Application);
 	//virtual ~application_term();
 
-	virtual std::shared_ptr<term> copy() override final;
+	virtual std::shared_ptr<term> copy() const override final;
 	virtual std::string toString() const override final;
 	virtual void print() const override final;
 	virtual std::shared_ptr<term> eval() override final;
