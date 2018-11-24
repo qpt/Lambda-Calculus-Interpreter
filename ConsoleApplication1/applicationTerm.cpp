@@ -57,7 +57,7 @@ std::shared_ptr<term> applicationTerm::eval()
 
 		std::shared_ptr<abstractionTerm>& reduct = std::dynamic_pointer_cast<abstractionTerm>(m_lhs);
 		std::shared_ptr<abstractionTerm>& reduced = std::dynamic_pointer_cast<abstractionTerm>(
-			reduct->betaReduce(reduct->getCapturedVariable(), m_rhs));
+			reduct->betaReduce(reduct->getCapturedVariable(), m_rhs, true));
 
 		return reduced->getBodyTerm();
 	}
@@ -99,10 +99,11 @@ void applicationTerm::naiveRenameBy(const variable varToRename, const variable n
 	m_rhs->naiveRenameBy(varToRename, newVar);
 }
 
-std::shared_ptr<term> applicationTerm::betaReduce(const variable varToReplace, const std::shared_ptr<term>& subTree)
+std::shared_ptr<term> applicationTerm::betaReduce(const variable varToReplace, const std::shared_ptr<term>& subTree,
+	const bool isReduct)
 {
-	auto& newLhs = m_lhs->betaReduce(varToReplace, subTree);
-	auto& newRhs = m_rhs->betaReduce(varToReplace, subTree);
+	auto& newLhs = m_lhs->betaReduce(varToReplace, subTree, false);
+	auto& newRhs = m_rhs->betaReduce(varToReplace, subTree, false);
 
 	return std::make_shared<applicationTerm>(applicationTerm(newLhs, newRhs));
 }

@@ -21,7 +21,7 @@ Parses pure lambda calculus expressions and reduces them to B-NF (if exists)
 
 Infinite Loop
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Ω = (Lx.xx)(Lx.xx)
+Ω = ((Lx.xx)(Lx.xx))
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Recursion
@@ -53,4 +53,10 @@ Numbers
 3' = [F, F, F]      = (Lx.x(Lx.(Ly.y))(Lx.x(Lx.(Ly.y))(Lx.x(Lx.(Ly.y))(Lx.x))))
 ...
 n' = [F, F, ..., F] = (Lx.x(Lx.(Ly.y)) (n-1)' )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+null
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Null = (Lx.(x (Lx.(Ly.(Lz.z)))      T        0'              1'          ))
+Null = (Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x))))
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
