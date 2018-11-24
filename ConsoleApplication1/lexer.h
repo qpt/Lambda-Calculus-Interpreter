@@ -17,4 +17,6 @@ public:
 
 private:
 	void tokenize(const std::string& lambdaExpressionString);
+	bool isLetter(char token) const;
+	bool isDigit(char token) const;
 };

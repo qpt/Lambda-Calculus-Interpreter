@@ -36,9 +36,26 @@ void lexer::tokenize(const std::string& lambdaExpressionString)
 		{
 			m_tokens.push_back(std::make_pair(std::string(1, token), ""));
 		}
-		else if (token >= 'a' && token <= 'z')
+		else if (isLetter(token))
 		{
-			m_tokens.push_back(std::make_pair("var", std::string(1, token)));
+			std::string varName = std::string(1, token);
+
+			for (size_t j = i + 1; j < lambdaExpressionString.size(); ++j)
+			{
+				const char nextToken = lambdaExpressionString[j];
+
+				if (isDigit(nextToken))
+				{
+					i = j;
+					varName += std::string(1, nextToken);
+				}
+				else
+				{
+					break;
+				}
+			}
+			
+			m_tokens.push_back(std::make_pair("var", varName));
 		}
 		else
 		{
@@ -48,4 +65,14 @@ void lexer::tokenize(const std::string& lambdaExpressionString)
 			throw std::exception(errorMessage.c_str());
 		}
 	}
+}
+
+bool lexer::isLetter(char token) const
+{
+	return token >= 'a' && token <= 'z';
+}
+
+bool lexer::isDigit(char token) const
+{
+	return token >= '0' && token <= '9';
 }
