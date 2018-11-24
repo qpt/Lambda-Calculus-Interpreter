@@ -39,10 +39,10 @@ Lists
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 []                = (Lx.x)
 [t1]              = (Lx.xt1(Lx.x))
-[t1, t2]          = (Lx.xt2(Lx.xt1(Lx.x)))
-[t1, t2, t3]      = (Lx.xt3(Lx.xt2(Lx.xt1(Lx.x))))
+[t1, t2]          = (Lx.xt1(Lx.xt2(Lx.x)))
+[t1, t2, t3]      = (Lx.xt1(Lx.xt2(Lx.xt3(Lx.x))))
 ...
-[t1, t2, ..., tk] = (Lx.x tk [t1, t2, ..., tk-1])
+[t1, t2, ..., tk] = (Lx.xt1 [t2, t3, ..., tk])
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Numbers
