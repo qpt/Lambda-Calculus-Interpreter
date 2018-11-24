@@ -18,9 +18,14 @@ std::shared_ptr<term> variableTerm::copy()
 	return std::make_shared<variableTerm>(variableTerm(m_variable));
 }
 
+std::string variableTerm::toString() const
+{
+	return m_variable.getName();
+}
+
 void variableTerm::print() const
 {
-	std::cout << m_variable.getName();
+	std::cout << toString();
 }
 
 std::shared_ptr<term> variableTerm::eval()

@@ -56,6 +56,9 @@
     <ClCompile Include="variableTerm.cpp">
       <Filter>Source Files\terms</Filter>
     </ClCompile>
+    <ClCompile Include="prepostprocessor.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="term.h">
@@ -81,6 +84,9 @@
     </ClInclude>
     <ClInclude Include="variableTerm.h">
       <Filter>Header Files\terms</Filter>
+    </ClInclude>
+    <ClInclude Include="prepostprocessor.h">
+      <Filter>Header Files\core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

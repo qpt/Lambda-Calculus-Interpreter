@@ -27,7 +27,10 @@ void interpreter::start()
 
 void interpreter::interpretInput(const std::string& inputStr)
 {
-	lexer l(inputStr);
+	std::string preprocessedStr = inputStr;
+	m_prepostprocessor.preprocess(preprocessedStr);
+
+	lexer l(preprocessedStr);
 
 	if (l.getTokens().size() == 0)
 	{
@@ -50,8 +53,7 @@ void interpreter::interpretInput(const std::string& inputStr)
 			ast = eval(ast);
 		}
 
-		std::cout << std::endl << "Normal Form found: ";
-		ast->print();
+		std::cout << std::endl << "Normal Form found: " + ast->toString();
 		std::cout << std::endl;
 	}
 
@@ -61,8 +63,9 @@ void interpreter::interpretInput(const std::string& inputStr)
 std::shared_ptr<term> interpreter::eval(const std::shared_ptr<term>& ast)
 {
 	std::shared_ptr<term>& reducedAST = ast->eval();
-	reducedAST->print();
-	std::cout << std::endl;
+	std::string reducedASTStr = reducedAST->toString();
+	m_prepostprocessor.postprocess(reducedASTStr);
+	std::cout << reducedASTStr << std::endl;
 
 	return reducedAST;
 }

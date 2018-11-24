@@ -24,13 +24,14 @@ std::shared_ptr<term> applicationTerm::copy()
 	return std::make_shared<applicationTerm>(applicationTerm(newLhs, newRhs));
 }
 
+std::string applicationTerm::toString() const
+{
+	return "(" + m_lhs->toString() + " " + m_rhs->toString() + ")";
+}
+
 void applicationTerm::print() const
 {
-	std::cout << "(";
-	m_lhs->print();
-	std::cout << " ";
-	m_rhs->print();
-	std::cout << ")";
+	std::cout << toString();
 }
 
 bool applicationTerm::isBetaRedex() const

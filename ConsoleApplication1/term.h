@@ -22,6 +22,7 @@ public:
 	termType getType() const;
 	virtual std::shared_ptr<term> copy() = 0;
 	virtual std::shared_ptr<term> eval() = 0;
+	virtual std::string toString() const = 0;
 	virtual void print() const = 0;
 	virtual bool isBetaRedex() const = 0;
 	virtual bool hasBetaRedex() const = 0;

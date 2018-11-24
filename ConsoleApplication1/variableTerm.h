@@ -13,6 +13,7 @@ public:
 	//virtual ~variable_term();
 
 	virtual std::shared_ptr<term> copy() override final;
+	virtual std::string toString() const override final;
 	virtual void print() const override final;
 	virtual std::shared_ptr<term> eval() override final;
 	virtual bool isBetaRedex() const override final;

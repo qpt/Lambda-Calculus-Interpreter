@@ -20,11 +20,14 @@ std::shared_ptr<term> abstractionTerm::copy()
 	return std::make_shared<abstractionTerm>(abstractionTerm(m_capture, newBody));
 }
 
+std::string abstractionTerm::toString() const
+{
+	return "(L" + m_capture.getName() + "." + m_body->toString() + ")";
+}
+
 void abstractionTerm::print() const
 {
-	std::cout << "(L" << m_capture.getName() << ".";
-	m_body->print();
-	std::cout << ")";
+	std::cout << toString();
 }
 
 std::shared_ptr<term> abstractionTerm::eval()
