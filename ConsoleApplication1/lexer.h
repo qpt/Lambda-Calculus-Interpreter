@@ -1,4 +1,6 @@
-#pragma once
+#ifndef LEXER_H
+#define LEXER_H
+
 #include <string>
 #include <vector>
 
@@ -20,3 +22,5 @@ private:
 	bool isLetter(char token) const;
 	bool isDigit(char token) const;
 };
+
+#endif // LEXER_H

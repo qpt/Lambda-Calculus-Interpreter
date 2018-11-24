@@ -1,4 +1,6 @@
-#pragma once
+#ifndef PREPOSTPROCESSOR_H
+#define PREPOSTPROCESSOR_H
+
 #include <string>
 #include <vector>
 #include <utility>
@@ -66,3 +68,5 @@ public:
 	void postprocess(std::string& inputStr);
 	void replaceAll(std::string &s, const std::string &search, const std::string &replace);
 };
+
+#endif // PREPOSTPROCESSOR_H

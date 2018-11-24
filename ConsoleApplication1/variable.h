@@ -1,4 +1,6 @@
-#pragma once
+#ifndef VARIABLE_H
+#define VARIABLE_H
+
 #include <string>
 
 class variable
@@ -14,3 +16,5 @@ public:
 	std::string getName() const;
 	void setName(const std::string& newName);
 };
+
+#endif // VARIABLE_H

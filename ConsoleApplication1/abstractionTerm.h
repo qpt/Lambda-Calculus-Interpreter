@@ -1,4 +1,6 @@
-#pragma once
+#ifndef ABSTRACTIONTERM_H
+#define ABSTRACTIONTERM_H
+
 #include "term.h"
 #include <memory>
 
@@ -28,3 +30,5 @@ public:
 	variable getCapturedVariable() const;
 	std::shared_ptr<term> getBodyTerm() const;
 };
+
+#endif // ABSTRACTIONTERM_H

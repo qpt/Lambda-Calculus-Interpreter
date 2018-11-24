@@ -1,4 +1,6 @@
-#pragma once
+#ifndef APPLICATIONTERM_H
+#define APPLICATIONTERM_H
+
 #include <memory>
 #include "term.h"
 #include "variable.h"
@@ -25,3 +27,5 @@ public:
 	virtual std::shared_ptr<term> betaReduce(const variable varToReplace, const std::shared_ptr<term>& subTree,
 		const bool isReduct) override final;
 };
+
+#endif // APPLICATIONTERM_H

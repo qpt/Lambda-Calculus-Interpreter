@@ -1,4 +1,6 @@
-#pragma once
+#ifndef PARSER_H
+#define PARSER_H
+
 #include "term.h"
 #include "lexer.h"
 #include "variable.h"
@@ -27,3 +29,5 @@ private:
 	void endOfTermCheck(std::vector<token_pair>::iterator& it, const std::string& termType);
 	int getCharIndex(const std::vector<token_pair>::iterator& it) const;
 };
+
+#endif // PARSER_H
