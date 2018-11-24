@@ -2,7 +2,7 @@ Append element to the list from right
 
 apr : M^2 -> M
 
-For example: append 0' to [] -->> [0']
+For example: append 0' to [] -->> [0'] = (Lz.((z 0') 0'))
 
 >>> (Y (Lf.(Lx.(Ly.If (Null y) (Cons x 0')  (Cons (Car y) (f x (Cdr y))) )))) 0' 0'
 
