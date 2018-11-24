@@ -63,8 +63,8 @@ n' = [F, F, ..., F] = (Lx.x(Lx.(Ly.y)) (n-1)' )
 
 Booleans : M
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-False = 0' = (Lx.x)
-True  = 1' = (Lx.x(Lx.(Ly.y))(Lx.x))
+Fs = 0' = (Lx.x)
+Tr = 1' = (Lx.x(Lx.(Ly.y))(Lx.x))
 
 These are Boolean S-Expressions. Should not be confused with T/F, which aren't S-Expressions!
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -91,4 +91,39 @@ atom : M -> M
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Atom  = (Lx.                                                If                                                             (                                     Null                            x)              1'         (                              False                                                    (x       T     )))
 Atom  = (Lx. (Lx.(Ly.(Lz.(((((Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x)))) x) (Lx.(Ly.x))) y) z)))) ((Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x)))) x) (Lx.x(Lx.(Ly.y))(Lx.x)) ((Lx.((((x (Lx.(Ly.(Lz. (Lx.x) )))) (Lx.(Ly.x))) (Lx.x(Lx.(Ly.y))(Lx.x))) (Lx.(Ly.y)))) (x (Lx.(Ly.x)) )))
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+not : M -> M (same as null)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Not = (Lx.(x (Lx.(Ly.(Lz.z)))      T        0'              1'          ))
+Not = (Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x))))
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+and : M^2 -> M
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+And = (Lx.(Ly.                                                            If                                                 (                                   Null                              x) x y))
+And = (Lx.(Ly. (Lx.(Ly.(Lz.(((((Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x)))) x) (Lx.(Ly.x))) y) z)))) ((Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x)))) x) x y))
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+or : M^2 -> M
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Or = (Lx.(Ly.                                                            If                                                 (                                   Null                              x) y x))
+Or = (Lx.(Ly. (Lx.(Ly.(Lz.(((((Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x)))) x) (Lx.(Ly.x))) y) z)))) ((Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x)))) x) y x))
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+car : M -> M
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Car = (Lx.                                                    If                                                         (                                                                     Atom                                                                                                                                                                                                                                                      x)         Ω        (x       T     ))
+Car = (Lx. (Lx.(Ly.(Lz.(((((Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x)))) x) (Lx.(Ly.x))) y) z)))) ((Lx. (Lx.(Ly.(Lz.(((((Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x)))) x) (Lx.(Ly.x))) y) z)))) ((Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x)))) x) (Lx.x(Lx.(Ly.y))(Lx.x)) ((Lx.((((x (Lx.(Ly.(Lz. (Lx.x) )))) (Lx.(Ly.x))) (Lx.x(Lx.(Ly.y))(Lx.x))) (Lx.(Ly.y)))) (x (Lx.(Ly.x)) ))) x) ((Lx.xx)(Lx.xx)) (x (Lx.(Ly.x)) ))
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+cdr : M -> M
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Cdr = (Lx.                                                    If                                                         (                                                                     Atom                                                                                                                                                                                                                                                      x)         Ω        (x       F     ))
+Cdr = (Lx. (Lx.(Ly.(Lz.(((((Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x)))) x) (Lx.(Ly.x))) y) z)))) ((Lx. (Lx.(Ly.(Lz.(((((Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x)))) x) (Lx.(Ly.x))) y) z)))) ((Lx.(x (Lx.(Ly.(Lz.z))) (Lx.(Ly.x)) (Lx.x) (Lx.x(Lx.(Ly.y))(Lx.x)))) x) (Lx.x(Lx.(Ly.y))(Lx.x)) ((Lx.((((x (Lx.(Ly.(Lz. (Lx.x) )))) (Lx.(Ly.x))) (Lx.x(Lx.(Ly.y))(Lx.x))) (Lx.(Ly.y)))) (x (Lx.(Ly.x)) ))) x) ((Lx.xx)(Lx.xx)) (x (Lx.(Ly.y)) ))
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+cons : M^2 -> M
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
