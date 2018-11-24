@@ -152,6 +152,7 @@
     <ClCompile Include="lexer.cpp" />
     <ClCompile Include="core.cpp" />
     <ClCompile Include="parser.cpp" />
+    <ClCompile Include="prepostprocessor.cpp" />
     <ClCompile Include="term.cpp" />
     <ClCompile Include="variable.cpp" />
     <ClCompile Include="variableTerm.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="interpreter.h" />
     <ClInclude Include="lexer.h" />
     <ClInclude Include="parser.h" />
+    <ClInclude Include="prepostprocessor.h" />
     <ClInclude Include="term.h" />
     <ClInclude Include="variable.h" />
     <ClInclude Include="variableTerm.h" />

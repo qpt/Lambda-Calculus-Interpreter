@@ -24,13 +24,14 @@ std::shared_ptr<term> applicationTerm::copy()
 	return std::make_shared<applicationTerm>(applicationTerm(newLhs, newRhs));
 }
 
+std::string applicationTerm::toString() const
+{
+	return "(" + m_lhs->toString() + " " + m_rhs->toString() + ")";
+}
+
 void applicationTerm::print() const
 {
-	std::cout << "(";
-	m_lhs->print();
-	std::cout << " ";
-	m_rhs->print();
-	std::cout << ")";
+	std::cout << toString();
 }
 
 bool applicationTerm::isBetaRedex() const
@@ -57,7 +58,7 @@ std::shared_ptr<term> applicationTerm::eval()
 
 		std::shared_ptr<abstractionTerm>& reduct = std::dynamic_pointer_cast<abstractionTerm>(m_lhs);
 		std::shared_ptr<abstractionTerm>& reduced = std::dynamic_pointer_cast<abstractionTerm>(
-			reduct->betaReduce(reduct->getCapturedVariable(), m_rhs));
+			reduct->betaReduce(reduct->getCapturedVariable(), m_rhs, true));
 
 		return reduced->getBodyTerm();
 	}
@@ -99,10 +100,11 @@ void applicationTerm::naiveRenameBy(const variable varToRename, const variable n
 	m_rhs->naiveRenameBy(varToRename, newVar);
 }
 
-std::shared_ptr<term> applicationTerm::betaReduce(const variable varToReplace, const std::shared_ptr<term>& subTree)
+std::shared_ptr<term> applicationTerm::betaReduce(const variable varToReplace, const std::shared_ptr<term>& subTree,
+	const bool isReduct)
 {
-	auto& newLhs = m_lhs->betaReduce(varToReplace, subTree);
-	auto& newRhs = m_rhs->betaReduce(varToReplace, subTree);
+	auto& newLhs = m_lhs->betaReduce(varToReplace, subTree, isReduct);
+	auto& newRhs = m_rhs->betaReduce(varToReplace, subTree, isReduct);
 
 	return std::make_shared<applicationTerm>(applicationTerm(newLhs, newRhs));
 }

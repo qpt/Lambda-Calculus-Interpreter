@@ -13,6 +13,7 @@ public:
 	//virtual ~variable_term();
 
 	virtual std::shared_ptr<term> copy() override final;
+	virtual std::string toString() const override final;
 	virtual void print() const override final;
 	virtual std::shared_ptr<term> eval() override final;
 	virtual bool isBetaRedex() const override final;
@@ -20,5 +21,6 @@ public:
 	virtual std::set<variable> getFreeVariables() const override final;
 	virtual void alphaRenameBy(const variable varToRename, const variable newVar) override final;
 	virtual void naiveRenameBy(const variable varToRename, const variable newVar) override final;
-	virtual std::shared_ptr<term> betaReduce(const variable varToReplace, const std::shared_ptr<term>& subTree) override final;
+	virtual std::shared_ptr<term> betaReduce(const variable varToReplace, const std::shared_ptr<term>& subTree, 
+		const bool isReduct) override final;
 };

@@ -2,9 +2,12 @@
 #include <string>
 #include <memory>
 #include "term.h"
+#include "prepostprocessor.h"
 
 class interpreter
 {
+	prepostprocessor m_prepostprocessor;
+
 public:
 	void start();
 

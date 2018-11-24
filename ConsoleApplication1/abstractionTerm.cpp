@@ -20,16 +20,19 @@ std::shared_ptr<term> abstractionTerm::copy()
 	return std::make_shared<abstractionTerm>(abstractionTerm(m_capture, newBody));
 }
 
+std::string abstractionTerm::toString() const
+{
+	return "(L" + m_capture.getName() + "." + m_body->toString() + ")";
+}
+
 void abstractionTerm::print() const
 {
-	std::cout << "(L" << m_capture.getName() << ".";
-	m_body->print();
-	std::cout << ")";
+	std::cout << toString();
 }
 
 std::shared_ptr<term> abstractionTerm::eval()
 {
-	return m_body->eval();
+	return std::make_shared<abstractionTerm>(abstractionTerm(m_capture, m_body->eval()));
 }
 
 bool abstractionTerm::isBetaRedex() const
@@ -80,9 +83,15 @@ void abstractionTerm::naiveRenameBy(const variable varToRename, const variable n
 	}
 }
 
-std::shared_ptr<term> abstractionTerm::betaReduce(const variable varToReplace, const std::shared_ptr<term>& subTree)
+std::shared_ptr<term> abstractionTerm::betaReduce(const variable varToReplace, const std::shared_ptr<term>& subTree,
+	const bool isReduct)
 {
-	auto& newBodyTerm = m_body->betaReduce(varToReplace, subTree);
+	if (!isReduct && m_capture.getName() == varToReplace.getName())
+	{
+		return copy();
+	}
+
+	auto& newBodyTerm = m_body->betaReduce(varToReplace, subTree, false);
 	return std::make_shared<abstractionTerm>(abstractionTerm(m_capture, newBodyTerm/*->copy()*/));
 }
 

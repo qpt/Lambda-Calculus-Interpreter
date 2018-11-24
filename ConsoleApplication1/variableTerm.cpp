@@ -18,9 +18,14 @@ std::shared_ptr<term> variableTerm::copy()
 	return std::make_shared<variableTerm>(variableTerm(m_variable));
 }
 
+std::string variableTerm::toString() const
+{
+	return m_variable.getName();
+}
+
 void variableTerm::print() const
 {
-	std::cout << m_variable.getName();
+	std::cout << toString();
 }
 
 std::shared_ptr<term> variableTerm::eval()
@@ -62,7 +67,8 @@ void variableTerm::naiveRenameBy(const variable varToRename, const variable newV
 	}
 }
 
-std::shared_ptr<term> variableTerm::betaReduce(const variable varToReplace, const std::shared_ptr<term>& subTree)
+std::shared_ptr<term> variableTerm::betaReduce(const variable varToReplace, const std::shared_ptr<term>& subTree,
+	const bool isReduct)
 {
 	if (varToReplace.getName() == m_variable.getName())
 	{
