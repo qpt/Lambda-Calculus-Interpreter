@@ -67,7 +67,7 @@ std::shared_ptr<term> applicationTerm::eval()
 		m_lhs = m_lhs->eval();
 		m_rhs = m_rhs->eval();
 
-		return copy();
+		return std::make_shared<applicationTerm>(applicationTerm(m_lhs, m_rhs));// copy();
 	}
 }
 

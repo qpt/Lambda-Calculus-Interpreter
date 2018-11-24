@@ -88,7 +88,7 @@ std::shared_ptr<term> abstractionTerm::betaReduce(const variable varToReplace, c
 {
 	if (!isReduct && m_capture.getName() == varToReplace.getName())
 	{
-		return copy();
+		return std::make_shared<abstractionTerm>(abstractionTerm(m_capture, m_body));//copy();
 	}
 
 	auto& newBodyTerm = m_body->betaReduce(varToReplace, subTree, false);
