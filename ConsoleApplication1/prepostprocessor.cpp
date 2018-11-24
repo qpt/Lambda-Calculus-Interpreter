@@ -20,9 +20,9 @@ prepostprocessor::prepostprocessor()
 	m_lispToLambda.push_back(ifPair1);
 	auto& nullPair1 = std::make_pair("Null", Null);
 	m_lispToLambda.push_back(nullPair1);
-	auto& trPair1 = std::make_pair("Tr", Tr);
+	auto& trPair1 = std::make_pair("1\'", Tr);
 	m_lispToLambda.push_back(trPair1);
-	auto& nilPair1 = std::make_pair("Nil", Nil);
+	auto& nilPair1 = std::make_pair("0\'", Nil);
 	m_lispToLambda.push_back(nilPair1);
 	auto& fPair1 = std::make_pair("F", F);
 	m_lispToLambda.push_back(fPair1);

@@ -10,14 +10,14 @@ parser::parser(const std::vector<token_pair>& _tokens)
 	m_ast = buildAST();
 }
 
-void parser::print()
+std::string parser::toString()
 {
-	std::cout << std::endl << "Your input is parsed as:" << std::endl;
 	if (m_ast != nullptr)
 	{
-		m_ast->print();
+		return m_ast->toString();
 	}
-	std::cout << std::endl << std::endl;
+
+	return std::string();
 }
 
 std::shared_ptr<term> parser::buildAST()
