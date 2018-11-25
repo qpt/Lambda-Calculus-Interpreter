@@ -5,6 +5,8 @@
 #include <set>
 #include "variable.h"
 
+extern bool isTopLeftMostTermReduced;
+
 enum class termType : char
 {
 	Variable,

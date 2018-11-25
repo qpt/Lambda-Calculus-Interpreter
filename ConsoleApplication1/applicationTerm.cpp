@@ -46,8 +46,9 @@ bool applicationTerm::hasBetaRedex() const
 
 std::shared_ptr<term> applicationTerm::eval()
 {
-	if (isBetaRedex())
+	if (isBetaRedex() && !isTopLeftMostTermReduced)
 	{
+		isTopLeftMostTermReduced = true;
 		std::set<variable> freeVarsRhs = m_rhs->getFreeVariables();
 
 		// construct alpha-congruent left subtree

@@ -3,6 +3,8 @@
 #include "lexer.h"
 #include "parser.h"
 
+bool isTopLeftMostTermReduced;
+
 void interpreter::start()
 {
 	char name[2048];
@@ -68,6 +70,7 @@ void interpreter::interpretInput(const std::string& inputStr)
 
 std::shared_ptr<term> interpreter::eval(const std::shared_ptr<term>& ast)
 {
+	isTopLeftMostTermReduced = false;
 	std::shared_ptr<term>& reducedAST = ast->eval();
 	std::string reducedASTStr = reducedAST->toString();
 	m_prepostprocessor.postprocess(reducedASTStr);
