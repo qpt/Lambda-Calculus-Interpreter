@@ -41,12 +41,12 @@ void interpreter::interpretInput(const std::string& inputStr)
 	}
 
 	parser p(l.getTokens());
-	
+
 	std::string parsedPostProcessedStr = p.toString();
 	m_prepostprocessor.postprocess(parsedPostProcessedStr);
 	std::cout << std::endl << "Your input is parsed as:" << std::endl;
 	std::cout << parsedPostProcessedStr << std::endl << std::endl;
-	std::shared_ptr<term>& ast = p.getAST();
+	std::shared_ptr<term> ast = p.getAST();
 
 	if (ast != nullptr)
 	{
@@ -59,7 +59,7 @@ void interpreter::interpretInput(const std::string& inputStr)
 			ast = eval(ast);
 		}
 
-		
+
 		std::string reducedNormalForm = ast->toString();
 		m_prepostprocessor.postprocess(reducedNormalForm);
 		std::cout << std::endl << "Normal Form found: " << std::endl << reducedNormalForm << std::endl;
@@ -71,7 +71,7 @@ void interpreter::interpretInput(const std::string& inputStr)
 std::shared_ptr<term> interpreter::eval(const std::shared_ptr<term>& ast)
 {
 	isTopLeftMostTermReduced = false;
-	std::shared_ptr<term>& reducedAST = ast->eval();
+	std::shared_ptr<term> reducedAST = ast->eval();
 	std::string reducedASTStr = reducedAST->toString();
 	m_prepostprocessor.postprocess(reducedASTStr);
 	std::cout << reducedASTStr << std::endl;

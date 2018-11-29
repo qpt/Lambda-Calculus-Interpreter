@@ -27,6 +27,12 @@
     <Filter Include="Source Files\core">
       <UniqueIdentifier>{85713c87-091a-4a02-ad25-bceda57e20b2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\misc">
+      <UniqueIdentifier>{a8bbe832-3b28-4f95-8207-350ae3493f63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\misc">
+      <UniqueIdentifier>{c6be58c6-e90e-48cd-9e26-1dc1ba2f1621}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="term.cpp">
@@ -59,6 +65,9 @@
     <ClCompile Include="prepostprocessor.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
+    <ClCompile Include="utility.cpp">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="term.h">
@@ -87,6 +96,9 @@
     </ClInclude>
     <ClInclude Include="prepostprocessor.h">
       <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="utility.h">
+      <Filter>Header Files\misc</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

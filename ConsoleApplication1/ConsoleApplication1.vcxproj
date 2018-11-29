@@ -155,6 +155,7 @@
     <ClCompile Include="parser.cpp" />
     <ClCompile Include="prepostprocessor.cpp" />
     <ClCompile Include="term.cpp" />
+    <ClCompile Include="utility.cpp" />
     <ClCompile Include="variable.cpp" />
     <ClCompile Include="variableTerm.cpp" />
   </ItemGroup>
@@ -166,6 +167,7 @@
     <ClInclude Include="parser.h" />
     <ClInclude Include="prepostprocessor.h" />
     <ClInclude Include="term.h" />
+    <ClInclude Include="utility.h" />
     <ClInclude Include="variable.h" />
     <ClInclude Include="variableTerm.h" />
   </ItemGroup>

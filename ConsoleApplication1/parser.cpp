@@ -1,5 +1,7 @@
-#include <iostream>
 #include "parser.h"
+#include <iostream>
+#include <stdexcept>
+#include "utility.h"
 #include "variableTerm.h"
 #include "applicationTerm.h"
 #include "abstractionTerm.h"
@@ -22,7 +24,8 @@ std::string parser::toString()
 
 std::shared_ptr<term> parser::buildAST()
 {
-	return parseApplicationTerm(m_tokens.begin());
+    auto it = m_tokens.begin();
+	return parseApplicationTerm(it);
 }
 
 std::shared_ptr<term> parser::parseApplicationTerm(std::vector<token_pair>::iterator& it)
@@ -31,7 +34,7 @@ std::shared_ptr<term> parser::parseApplicationTerm(std::vector<token_pair>::iter
 
 	while (it != m_tokens.end() && it->first != ")")
 	{
-		std::shared_ptr<term>& newAst = parseTerm(it);
+		std::shared_ptr<term> newAst = parseTerm(it);
 
 		if (lhs == nullptr)
 		{
@@ -57,12 +60,12 @@ std::shared_ptr<term> parser::parseTerm(std::vector<token_pair>::iterator& it)
 		++it;
 		endOfTermCheck(it, "nested term");
 
-		std::shared_ptr<term>& nestedTerm = parseApplicationTerm(it);
+		std::shared_ptr<term> nestedTerm = parseApplicationTerm(it);
 		endOfTermCheck(it, "nested term");
 
 		if (it->first != ")") // nested term out
 		{
-			throw std::exception(std::string("CH" + std::to_string(getCharIndex(it))
+			throw std::runtime_error(std::string("CH" + misc::to_string(getCharIndex(it))
 				+ ": Close parenthesis not found!").c_str());
 		}
 		++it;
@@ -75,7 +78,7 @@ std::shared_ptr<term> parser::parseTerm(std::vector<token_pair>::iterator& it)
 	}
 	else
 	{
-		throw std::exception(std::string("CH" + std::to_string(getCharIndex(it))
+		throw std::runtime_error(std::string("CH" + misc::to_string(getCharIndex(it))
 			+ ": Unexpected token \'" + it->first + " " + it->second + "\' found!").c_str());
 	}
 }
@@ -85,10 +88,10 @@ std::shared_ptr<term> parser::parseAbstractionTerm(std::vector<token_pair>::iter
 	++it;
 	endOfTermCheck(it, "abstraction term");
 	variable captured = parseVariable(it);
-	
+
 	if (it == m_tokens.end() || it->first != ".")
 	{
-		throw std::exception(std::string("CH" + std::to_string(getCharIndex(it))
+		throw std::runtime_error(std::string("CH" + misc::to_string(getCharIndex(it))
 			+ ": Abstractor end symbol \'.\' not found!").c_str());
 	}
 
@@ -111,7 +114,7 @@ variable parser::parseVariable(std::vector<token_pair>::iterator& it)
 {
 	if (it->first != "var")
 	{
-		throw std::exception(std::string("CH" + std::to_string(getCharIndex(it))
+		throw std::runtime_error(std::string("CH" + misc::to_string(getCharIndex(it))
 			+ ": \'" + it->second + "\' is not a variable").c_str());
 	}
 	variable newVariable = variable(it->second);
@@ -124,7 +127,7 @@ void parser::endOfTermCheck(std::vector<token_pair>::iterator& it, const std::st
 {
 	if (it == m_tokens.end())
 	{
-		throw std::exception(std::string("CH" + std::to_string(getCharIndex(it))
+		throw std::runtime_error(std::string("CH" + misc::to_string(getCharIndex(it))
 			+ ": Unexpected ending after parsing " + termType + "!").c_str());
 	}
 }

@@ -16,7 +16,7 @@ abstractionTerm::abstractionTerm(const variable _capture, const std::shared_ptr<
 
 std::shared_ptr<term> abstractionTerm::copy() const
 {
-	std::shared_ptr<term>& newBody = m_body->copy();
+	std::shared_ptr<term> newBody = m_body->copy();
 	return std::make_shared<abstractionTerm>(abstractionTerm(m_capture, newBody));
 }
 
@@ -91,7 +91,7 @@ std::shared_ptr<term> abstractionTerm::betaReduce(const variable varToReplace, c
 		return std::make_shared<abstractionTerm>(abstractionTerm(m_capture, m_body));//copy();
 	}
 
-	auto& newBodyTerm = m_body->betaReduce(varToReplace, subTree, false);
+	auto newBodyTerm = m_body->betaReduce(varToReplace, subTree, false);
 	return std::make_shared<abstractionTerm>(abstractionTerm(m_capture, newBodyTerm/*->copy()*/));
 }
 

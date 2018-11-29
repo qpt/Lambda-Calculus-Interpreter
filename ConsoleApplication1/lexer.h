@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-using token_pair = std::pair<std::string, std::string>;
+typedef std::pair<std::string, std::string> token_pair;
 
 class lexer
 {

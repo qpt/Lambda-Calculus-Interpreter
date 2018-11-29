@@ -1,5 +1,7 @@
 #include "lexer.h"
 #include <iostream>
+#include <stdexcept>
+#include "utility.h"
 
 lexer::lexer(const std::string& lambdaExpressionString)
 {
@@ -54,15 +56,15 @@ void lexer::tokenize(const std::string& lambdaExpressionString)
 					break;
 				}
 			}
-			
+
 			m_tokens.push_back(std::make_pair("var", varName));
 		}
 		else
 		{
 			std::string errorMessage = std::string("Unrecognized symbol \'" + std::string(1, token)
-				+ "\' at index: " + std::to_string(i));
+				+ "\' at index: " + misc::to_string(i));
 
-			throw std::exception(errorMessage.c_str());
+			throw std::runtime_error(errorMessage.c_str());
 		}
 	}
 }
