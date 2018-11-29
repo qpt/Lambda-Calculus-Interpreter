@@ -7,13 +7,13 @@ bool isTopLeftMostTermReduced;
 
 void interpreter::start()
 {
-	char name[2048];
+	char rawInput[2048];
 	std::cout << "Lambda Calculus Interpreter v0.1a" << std::endl;
 	std::cout << std::endl << ">>> ";
 
-	while (std::cin.getline(name, 2048))
+	while (std::cin.getline(rawInput, 2048))
 	{
-		std::string inputStr(name);
+		std::string inputStr(rawInput);
 
 		try
 		{
