@@ -1,8 +1,18 @@
 #include "lciapi.h"
 #include "../Interpreter/lexer.h"
 #include "../Interpreter/parser.h"
+#include "../Interpreter/prepostprocessor.h"
 
 bool isTopLeftMostTermReduced;
+static prepostprocessor g_prePostProcessor;
+
+std::shared_ptr<term> eval(const std::shared_ptr<term>& ast)
+{
+	isTopLeftMostTermReduced = false;
+	std::shared_ptr<term> reducedAST = ast->eval();
+
+	return reducedAST;
+}
 
 std::string lci::getNormalForm(const std::string& inputStr, const bool isProcessed)
 {
@@ -10,7 +20,7 @@ std::string lci::getNormalForm(const std::string& inputStr, const bool isProcess
 
 	if (isProcessed)
 	{
-		lci::g_prePostProcessor.preprocess(preProcessedStr);
+		g_prePostProcessor.preprocess(preProcessedStr);
 	}
 
 	lexer l(preProcessedStr);
@@ -26,15 +36,13 @@ std::string lci::getNormalForm(const std::string& inputStr, const bool isProcess
 
 	if (isProcessed)
 	{
-		lci::g_prePostProcessor.postprocess(parsedPostProcessedStr);
+		g_prePostProcessor.postprocess(parsedPostProcessedStr);
 	}
 
 	std::shared_ptr<term> ast = p.getAST();
 
 	if (ast != nullptr)
 	{
-		// This might take forever for a countably infinite number of cases,
-		// so it's better to run this function on a separate thread!
 		while (ast != nullptr && ast->hasBetaRedex())
 		{
 			ast = eval(ast);
@@ -44,19 +52,11 @@ std::string lci::getNormalForm(const std::string& inputStr, const bool isProcess
 
 		if (isProcessed)
 		{
-			lci::g_prePostProcessor.postprocess(reducedNormalForm);
+			g_prePostProcessor.postprocess(reducedNormalForm);
 		}
 
 		return reducedNormalForm;
 	}
 
 	return std::string();
-}
-
-std::shared_ptr<term> lci::eval(const std::shared_ptr<term>& ast)
-{
-	isTopLeftMostTermReduced = false;
-	std::shared_ptr<term> reducedAST = ast->eval();
-
-	return reducedAST;
 }
