@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{822d1833-911d-4a08-88a6-e7656dda9489}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{c7ffe781-e8df-4c1c-b640-6b4b8901e5a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\term">
+      <UniqueIdentifier>{11dc59fd-b512-4477-bed6-0db6631ee7a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\term">
+      <UniqueIdentifier>{ae21f25c-10dd-4974-b9fd-f7c2bbee0bc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\atom">
+      <UniqueIdentifier>{33fcc3ad-fe0d-4a31-9a2a-c3c30274d2a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\atom">
+      <UniqueIdentifier>{e0a5909e-7a02-465f-86e7-cacddf18f1a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\misc">
+      <UniqueIdentifier>{b841cf4f-4e8f-4a29-a3c0-3053fff371cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\misc">
+      <UniqueIdentifier>{8abf0299-604b-40b5-8d05-9dd841e53def}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\core">
+      <UniqueIdentifier>{371ce408-b762-4aa7-93be-922b78b22df3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\core">
+      <UniqueIdentifier>{7de5ffb5-80aa-4278-a73a-6fe154fba2a2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Interpreter\abstractionTerm.h">
+      <Filter>Headers\term</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Interpreter\applicationTerm.h">
+      <Filter>Headers\term</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Interpreter\term.h">
+      <Filter>Headers\term</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Interpreter\variableTerm.h">
+      <Filter>Headers\term</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Interpreter\variable.h">
+      <Filter>Headers\atom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Interpreter\utility.h">
+      <Filter>Headers\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="lciapi.h">
+      <Filter>Headers\core</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Interpreter\abstractionTerm.cpp">
+      <Filter>Sources\term</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Interpreter\applicationTerm.cpp">
+      <Filter>Sources\term</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Interpreter\term.cpp">
+      <Filter>Sources\term</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Interpreter\variableTerm.cpp">
+      <Filter>Sources\term</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Interpreter\variable.cpp">
+      <Filter>Sources\atom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Interpreter\utility.cpp">
+      <Filter>Sources\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="lciapi.cpp">
+      <Filter>Sources\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Interpreter\lexer.cpp">
+      <Filter>Sources\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Interpreter\parser.cpp">
+      <Filter>Sources\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Interpreter\prepostprocessor.cpp">
+      <Filter>Sources\core</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
