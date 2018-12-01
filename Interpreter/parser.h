@@ -13,7 +13,7 @@ private:
 	std::shared_ptr<term> m_ast;
 
 public:
-	parser(const std::vector<token_pair>& _lexer);
+	parser(const std::vector<token_pair>& _tokens);
 
 	std::string toString();
 	std::shared_ptr<term> getAST();

@@ -18,6 +18,27 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Interpreter\abstractionTerm.h" />
+    <ClInclude Include="..\Interpreter\applicationTerm.h" />
+    <ClInclude Include="..\Interpreter\term.h" />
+    <ClInclude Include="..\Interpreter\utility.h" />
+    <ClInclude Include="..\Interpreter\variable.h" />
+    <ClInclude Include="..\Interpreter\variableTerm.h" />
+    <ClInclude Include="lciapi.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Interpreter\abstractionTerm.cpp" />
+    <ClCompile Include="..\Interpreter\applicationTerm.cpp" />
+    <ClCompile Include="..\Interpreter\lexer.cpp" />
+    <ClCompile Include="..\Interpreter\parser.cpp" />
+    <ClCompile Include="..\Interpreter\prepostprocessor.cpp" />
+    <ClCompile Include="..\Interpreter\term.cpp" />
+    <ClCompile Include="..\Interpreter\utility.cpp" />
+    <ClCompile Include="..\Interpreter\variable.cpp" />
+    <ClCompile Include="..\Interpreter\variableTerm.cpp" />
+    <ClCompile Include="lciapi.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0FB5D4BF-6F72-4302-82DB-8A3B7B47820C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
