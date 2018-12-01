@@ -1,13 +1,14 @@
 #include "lciapi.h"
-
 #include "../Interpreter/lexer.h"
 #include "../Interpreter/parser.h"
 
-std::string lci::getNormalForm(const std::string& inputStr, const bool shouldProcess)
+bool isTopLeftMostTermReduced;
+
+std::string lci::getNormalForm(const std::string& inputStr, const bool isProcessed)
 {
 	std::string preProcessedStr = inputStr;
 
-	if (shouldProcess)
+	if (isProcessed)
 	{
 		lci::g_prePostProcessor.preprocess(preProcessedStr);
 	}
@@ -23,7 +24,7 @@ std::string lci::getNormalForm(const std::string& inputStr, const bool shouldPro
 
 	std::string parsedPostProcessedStr = p.toString();
 
-	if (shouldProcess)
+	if (isProcessed)
 	{
 		lci::g_prePostProcessor.postprocess(parsedPostProcessedStr);
 	}
@@ -41,7 +42,7 @@ std::string lci::getNormalForm(const std::string& inputStr, const bool shouldPro
 
 		std::string reducedNormalForm = ast->toString();
 
-		if (shouldProcess)
+		if (isProcessed)
 		{
 			lci::g_prePostProcessor.postprocess(reducedNormalForm);
 		}

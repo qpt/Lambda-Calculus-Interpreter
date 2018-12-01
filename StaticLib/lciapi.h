@@ -6,7 +6,7 @@
 
 namespace lci
 {
-	std::string getNormalForm(const std::string& input, const bool shouldProcess);
+	std::string getNormalForm(const std::string& input, const bool isProcessed);
 
 	static prepostprocessor g_prePostProcessor;
 	static std::shared_ptr<term> eval(const std::shared_ptr<term>& ast);
