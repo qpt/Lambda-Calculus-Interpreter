@@ -11,11 +11,11 @@ class interpreter
 	prepostprocessor m_prepostprocessor;
 
 public:
-	void start();
+    std::string start(const char input[], std::vector<std::string>* reductions);
 
 private:
-	void interpretInput(const std::string& inputStr);
-	std::shared_ptr<term> eval(const std::shared_ptr<term>& ast);
+	std::string interpretInput(const std::string& inputStr, std::vector<std::string>* strings);
+	std::shared_ptr<term> eval(const std::shared_ptr<term>& ast, std::string* reducedASTStr);
 };
 
 #endif // INTERPRETER_H

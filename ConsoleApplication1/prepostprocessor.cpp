@@ -22,7 +22,7 @@ prepostprocessor::prepostprocessor()
 	m_lispToLambda.push_back(nullPair);
 	auto trPair = std::make_pair("1\'", Tr);
 	m_lispToLambda.push_back(trPair);
-	auto nilPair = std::make_pair("0\'", Nil);
+	auto nilPair = std::make_pair("0\'", Nill);
 	m_lispToLambda.push_back(nilPair);
 	auto fPair = std::make_pair("F", F);
 	m_lispToLambda.push_back(fPair);
