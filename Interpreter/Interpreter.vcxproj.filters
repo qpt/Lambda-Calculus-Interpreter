@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="core.cpp">
+      <Filter>Sources\core</Filter>
+    </ClCompile>
+    <ClCompile Include="interpreter.cpp">
+      <Filter>Sources\core</Filter>
+    </ClCompile>
+    <ClCompile Include="lexer.cpp">
+      <Filter>Sources\core</Filter>
+    </ClCompile>
+    <ClCompile Include="parser.cpp">
+      <Filter>Sources\core</Filter>
+    </ClCompile>
+    <ClCompile Include="prepostprocessor.cpp">
+      <Filter>Sources\core</Filter>
+    </ClCompile>
+    <ClCompile Include="variableTerm.cpp">
+      <Filter>Sources\term</Filter>
+    </ClCompile>
+    <ClCompile Include="applicationTerm.cpp">
+      <Filter>Sources\term</Filter>
+    </ClCompile>
+    <ClCompile Include="abstractionTerm.cpp">
+      <Filter>Sources\term</Filter>
+    </ClCompile>
+    <ClCompile Include="term.cpp">
+      <Filter>Sources\term</Filter>
+    </ClCompile>
+    <ClCompile Include="utility.cpp">
+      <Filter>Sources\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="variable.cpp">
+      <Filter>Sources\atom</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="abstractionTerm.h">
+      <Filter>Headers\term</Filter>
+    </ClInclude>
+    <ClInclude Include="applicationTerm.h">
+      <Filter>Headers\term</Filter>
+    </ClInclude>
+    <ClInclude Include="term.h">
+      <Filter>Headers\term</Filter>
+    </ClInclude>
+    <ClInclude Include="variableTerm.h">
+      <Filter>Headers\term</Filter>
+    </ClInclude>
+    <ClInclude Include="utility.h">
+      <Filter>Headers\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="interpreter.h">
+      <Filter>Headers\core</Filter>
+    </ClInclude>
+    <ClInclude Include="lexer.h">
+      <Filter>Headers\core</Filter>
+    </ClInclude>
+    <ClInclude Include="parser.h">
+      <Filter>Headers\core</Filter>
+    </ClInclude>
+    <ClInclude Include="prepostprocessor.h">
+      <Filter>Headers\core</Filter>
+    </ClInclude>
+    <ClInclude Include="variable.h">
+      <Filter>Headers\atom</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{cf77159b-701d-41de-8582-800fd19951be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{a9ab0efc-3a3a-4ccb-ac92-18e9c7163580}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\term">
+      <UniqueIdentifier>{e3090cb9-41e8-470d-a0a8-1f78e95dcce4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\misc">
+      <UniqueIdentifier>{ed6b91b7-2453-4010-85d7-aaa773ce2c92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\term">
+      <UniqueIdentifier>{fd66e046-bc7b-4acc-b857-a9e85a5e269e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\atom">
+      <UniqueIdentifier>{fb1627cc-5b44-489c-b221-5a3927e5a869}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\core">
+      <UniqueIdentifier>{c5ac66c6-b187-4153-97c5-f140e907b371}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\misc">
+      <UniqueIdentifier>{71133b98-ed45-460a-be5f-d938e817e47d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\atom">
+      <UniqueIdentifier>{148419d2-bc88-4536-9b0e-f0c15a4bb6cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\core">
+      <UniqueIdentifier>{11f1ee05-ffb5-4bb7-a473-0d58d5d69cfd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
