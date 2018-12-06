@@ -134,7 +134,7 @@ void parser::endOfTermCheck(std::vector<token_pair>::iterator& it, const std::st
 
 int parser::getCharIndex(const std::vector<token_pair>::iterator& it) const
 {
-	return it - m_tokens.begin();
+	return (int)(it - m_tokens.begin());
 }
 
 std::shared_ptr<term> parser::getAST()

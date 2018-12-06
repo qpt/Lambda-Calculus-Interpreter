@@ -62,7 +62,7 @@ void lexer::tokenize(const std::string& lambdaExpressionString)
 		else
 		{
 			std::string errorMessage = std::string("Unrecognized symbol \'" + std::string(1, token)
-				+ "\' at index: " + misc::to_string(i));
+				+ "\' at index: " + misc::to_string((int)i));
 
 			throw std::runtime_error(errorMessage.c_str());
 		}

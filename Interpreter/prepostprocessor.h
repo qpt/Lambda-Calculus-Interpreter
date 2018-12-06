@@ -11,7 +11,7 @@ class prepostprocessor
 	const std::string yComb = "(Lf.((Lx.(f (x x))) (Lx.(f (x x)))))";
 	const std::string T     = "(Lx.(Ly.x))";
 	const std::string F     = "(Lx.(Ly.y))";
-	const std::string Nil   = "(Lx.x)";
+	const std::string Nill   = "(Lx.x)";
 	const std::string Tr    = "(Lx.((x (Lx.(Ly.y))) (Lx.x)))";
 	const std::string Null  = "(Lx.((((x (Lx.(Ly.(Lz.z)))) (Lx.(Ly.x))) (Lx.x)) (Lx.((x (Lx.(Ly.y))) (Lx.x)))))";
 	const std::string If    = "(Lx.(Ly.(Lz.(((((Lx.((((x (Lx.(Ly.(Lz.z)))) (Lx.(Ly.x))) (Lx.x)) (Lx.((x (Lx.(Ly"
