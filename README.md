@@ -1,7 +1,7 @@
 # Lambda-Calculus-Interpreter
 Parses pure lambda calculus expressions and reduces them to B-NF (if exists)
 
-All of McCarthy function terms has been designed in this paper:
+All of McCarthy function terms were originally designed in this paper:
 [Nigiyan S.A. : λ-DEFINABILITY OF BUILT-IN McCARTHY FUNCTIONS AS FUNCTIONS WITH INDETERMINATE VALUES OF ARGUMENTS, 2019.](http://www.ysu.am/files/8.%20Nigiyan.pdf)
 
 
